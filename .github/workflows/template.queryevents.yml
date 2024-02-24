@@ -32,7 +32,7 @@ jobs:
       events: ${{ steps.QueryEvents.outputs.events }}
     steps:
       - uses: actions/checkout@v4
-      - uses: Azure/login@dcaef1266d46c882395ebb912cd1bc17d0b67902 # use node20
+      - uses: Azure/login@332d569187d71a3c53ab5c5262f97825d774b4e6 # use node20
         name: Run Azure Login
         with:
           creds: "${{ secrets.azureEnviromentCredentials }}"
