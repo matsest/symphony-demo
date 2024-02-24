@@ -37,7 +37,7 @@ jobs:
           ./setup-azcli.sh
         working-directory: scripts/orchestrators
 
-      - uses: Azure/login@v1
+      - uses: Azure/login@dcaef1266d46c882395ebb912cd1bc17d0b67902 # use node20
         with:
           creds: "${{ secrets.azureEnviromentCredentials }}"
           environment: "AzureCloud"

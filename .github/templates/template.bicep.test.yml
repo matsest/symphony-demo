@@ -39,7 +39,7 @@ jobs:
           source ~/.bashrc
         working-directory: scripts/orchestrators
 
-      - uses: Azure/login@v1
+      - uses: Azure/login@dcaef1266d46c882395ebb912cd1bc17d0b67902 # use node20
         name: Run Azure Login
         with:
           creds: "${{ secrets.azureEnviromentCredentials }}"
