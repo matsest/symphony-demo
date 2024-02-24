@@ -52,7 +52,7 @@ jobs:
 
   Validate:
     needs: Setup
-    uses: ./.github/templates/template.bicep.validate.yml
+    uses: ./.github/workflows/template.bicep.validate.yml
     with:
       environmentName: ${{ needs.Setup.outputs.environmentName }}
       environmentDirectory: ${{ needs.Setup.outputs.prEnvironmentDirectory }}
@@ -89,7 +89,7 @@ jobs:
 
   NewEnvironment:
     needs: [Setup, Validate]
-    uses: ./.github/templates/template.storeevent.yml
+    uses: ./.github/workflows/template.storeevent.yml
     permissions:
       pull-requests: write
     with:
@@ -112,7 +112,7 @@ jobs:
 
   PreviewDeployBaseBranch:
     needs: [Setup, NewEnvironment]
-    uses: ./.github/templates/template.bicep.previewdeploy.yml
+    uses: ./.github/workflows/template.bicep.previewdeploy.yml
     with:
       environmentName: ${{ needs.Setup.outputs.environmentName }}
       environmentDirectory: ${{ needs.Setup.outputs.prEnvironmentDirectory }}
@@ -124,7 +124,7 @@ jobs:
 
   PreviewDeployPRBranch:
     needs: [Setup, PreviewDeployBaseBranch]
-    uses: ./.github/templates/template.bicep.previewdeploy.yml
+    uses: ./.github/workflows/template.bicep.previewdeploy.yml
     with:
       environmentName: ${{ needs.Setup.outputs.environmentName }}
       environmentDirectory: ${{ needs.Setup.outputs.prEnvironmentDirectory }}
@@ -139,7 +139,7 @@ jobs:
     permissions:
       pull-requests: write
       checks: write
-    uses: ./.github/templates/template.bicep.test.yml
+    uses: ./.github/workflows/template.bicep.test.yml
     with:
       environmentName: ${{ needs.Setup.outputs.environmentName }}
       locationName: ${{ needs.Setup.outputs.locationName }}
@@ -151,7 +151,7 @@ jobs:
   Destroy:
     if: ${{ always() && !contains(github.event.pull_request.labels.*.name, 'preserve-pr-environment') }}
     needs: [Setup, Test]
-    uses: ./.github/templates/template.bicep.destroy.yml
+    uses: ./.github/workflows/template.bicep.destroy.yml
     with:
       environmentName: ${{ needs.Setup.outputs.environmentName }}
       locationName: ${{ needs.Setup.outputs.locationName }}

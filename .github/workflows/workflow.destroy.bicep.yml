@@ -27,7 +27,7 @@ on: # yamllint disable-line rule:truthy
 
 jobs:
   Destroy:
-    uses: ./.github/templates/template.bicep.destroy.yml
+    uses: ./.github/workflows/template.bicep.destroy.yml
     with:
       environmentName: ${{ github.event.inputs.environmentName }}
       locationName: ${{ github.event.inputs.locationName }}
