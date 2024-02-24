@@ -19,7 +19,7 @@ on: # yamllint disable-line rule:truthy
       locationName:
         description: "Name of the deployment Location"
         required: true
-        default: "westus"
+        default: "norwayeast"
       keyVaultName:
         description: "Environment Key Vault Name"
         required: true
