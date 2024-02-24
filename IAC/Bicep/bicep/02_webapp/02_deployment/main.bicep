@@ -25,7 +25,7 @@ module appSvcPlanNameGenerator './../../modules/nameGenerator.bicep' = {
   params: {
     name: 'app-svc-plan'
     prefix: environment
-    uniqueToken: location
+    uniqueToken: take(location, 6)
   }
 }
 

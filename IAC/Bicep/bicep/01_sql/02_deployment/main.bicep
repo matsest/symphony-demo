@@ -17,7 +17,7 @@ module sqlServerName './../../modules/nameGenerator.bicep' = {
   params: {
     name: 'sqlserver'
     prefix: environment
-    uniqueToken: location
+    uniqueToken: take(location, 6)
   }
 }
 
