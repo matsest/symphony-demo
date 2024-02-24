@@ -71,7 +71,7 @@ jobs:
           ./iac.bicep.lint.sh
         working-directory: scripts/orchestrators
 
-      - uses: Azure/login@332d569187d71a3c53ab5c5262f97825d774b4e6 # use node20
+      - uses: Azure/login@v1
         name: Run Azure Login
         with:
           creds: "${{ secrets.azureEnviromentCredentials }}"
