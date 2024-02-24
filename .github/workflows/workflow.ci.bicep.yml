@@ -27,7 +27,7 @@ on: # yamllint disable-line rule:truthy
 
 jobs:
   Validate:
-    uses: ./.github/workflows/template.bicep.validate.yml
+    uses: ./.github/templates/template.bicep.validate.yml
     with:
       environmentName: ${{ github.event.inputs.environmentName }}
       environmentDirectory: ${{ github.event.inputs.environmentName }}
@@ -43,7 +43,7 @@ jobs:
 
   PreviewDeploy:
     needs: Validate
-    uses: ./.github/workflows/template.bicep.previewdeploy.yml
+    uses: ./.github/templates/template.bicep.previewdeploy.yml
     with:
       environmentName: ${{ github.event.inputs.environmentName }}
       environmentDirectory: ${{ github.event.inputs.environmentName }}
@@ -55,7 +55,7 @@ jobs:
 
   Test:
     needs: PreviewDeploy
-    uses: ./.github/workflows/template.bicep.test.yml
+    uses: ./.github/templates/template.bicep.test.yml
     with:
       environmentName: ${{ github.event.inputs.environmentName }}
       locationName: ${{ github.event.inputs.locationName }}

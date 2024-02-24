@@ -14,7 +14,7 @@ on: # yamllint disable-line rule:truthy
 
 jobs:
   Destroy:
-    uses: ./.github/workflows/template.bicep.cleanup.yml
+    uses: ./.github/templates/template.bicep.cleanup.yml
     with:
       pullRequestnumber: ${{ github.event.inputs.pullRequestNumber }}
       keyVaultName: ${{ github.event.inputs.keyVaultName }}

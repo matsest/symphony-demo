@@ -28,7 +28,7 @@ jobs:
 
   Cleanup:
     needs: [Setup]
-    uses: ./.github/workflows/template.bicep.cleanup.yml
+    uses: ./.github/templates/template.bicep.cleanup.yml
     with:
       pullRequestNumber: ${{ github.event.pull_request.number }}
       keyVaultName: ${{ needs.Setup.outputs.keyVaultName }}
